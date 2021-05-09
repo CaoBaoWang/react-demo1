@@ -1,27 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
-import AppJSX from "./AppJSX";
+import App from "./App";
 
 const root = document.querySelector('#root')
 
-let n = 0
-// const App = () => React.createElement('div', {className: 'red',},
-//     [
-//         n,
-//         React.createElement('button', {
-//                 onClick: () => {
-//                     n++
-//                     console.log(n)
-//                     ReactDOM.render(App(), root);
-//                 }
-//             },
-//             "+1"
-//         )
-//     ]
-// )
 
 
 
-
-ReactDOM.render(<AppJSX />, root);
+ReactDOM.render(<App />, root);
