@@ -2,9 +2,12 @@ import React from 'react'
 
 
 class App2 extends React.PureComponent {
+    ref= undefined
     constructor(props) {
         super(props)
         this.state =  {n:0,width:null}
+        //初始化 ref
+        this.ref = React.createRef()
     }
 
     add=()=> {
@@ -22,8 +25,8 @@ class App2 extends React.PureComponent {
 
     componentDidMount() {
         console.log('mount') // 首次渲染执行
-        // 操作DOM
-        const divxxx = document.getElementById('divxxx')
+        // 使用ref 获取DOM
+        const divxxx = this.ref.current
         const width = divxxx.getBoundingClientRect().width
         this.setState({width})
     }
@@ -33,7 +36,8 @@ class App2 extends React.PureComponent {
         console.log('render')
         return (
             <div className="App2">App2 <br/>
-                <div id="divxxx">{this.state.n}</div>
+                {/*给DOM绑定ref*/}
+                <div ref={this.ref}>{this.state.n}</div>
                 <button onClick={this.add}>+1</button>
                 div.width= {this.state.width}
             </div>
