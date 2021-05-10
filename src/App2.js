@@ -4,7 +4,7 @@ import React from 'react'
 class App2 extends React.PureComponent {
     constructor(props) {
         super(props)
-        this.state =  {n:0}
+        this.state =  {n:0,width:null}
     }
 
     add=()=> {
@@ -12,9 +12,6 @@ class App2 extends React.PureComponent {
             return {n:state.n+1}
         })
 
-        this.setState((state)=>{
-            return {n:state.n-1}
-        })
     }
     // shouldComponentUpdate(nextProps, nextState, nextContext) {
     //
@@ -23,13 +20,22 @@ class App2 extends React.PureComponent {
     //     return nextState === this.state
     // }
 
+    componentDidMount() {
+        console.log('mount') // 首次渲染执行
+        // 操作DOM
+        const divxxx = document.getElementById('divxxx')
+        const width = divxxx.getBoundingClientRect().width
+        this.setState({width})
+    }
+
     render() {
         // 执行了 render  n+1  n-1  n的值没变 但是对象的值变了 会重新执行 render 。 DOM是不会变化，应为DOM diff 发现没有变化。就啥都不变
         console.log('render')
         return (
             <div className="App2">App2 <br/>
-                {this.state.n}
+                <div id="divxxx">{this.state.n}</div>
                 <button onClick={this.add}>+1</button>
+                div.width= {this.state.width}
             </div>
         )
     }
