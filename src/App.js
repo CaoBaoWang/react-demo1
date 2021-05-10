@@ -1,4 +1,5 @@
 import React from "react";
+import App2 from "./App2";
 
 
 class Component extends React.Component {
@@ -58,6 +59,7 @@ class App extends React.Component {
                         <div key={item}>{item}</div>)
                     }
                 </ul>
+                <App2 />
             </div>
         )
     }
