@@ -39,10 +39,12 @@ class App extends React.Component {
     }
 
     addN = () => {
-        const n = this.state.n+1
-        const histroy = this.state.history
-        histroy.push(n)
-        this.setState( {n,histroy})
+        // const n = this.state.n+1
+        // const history = this.state.history
+        // history.push(n)
+        // this.setState( {n,history: history})
+
+        this.setState((state)=> ({n:state.n+1,history: [...state.history,state.n+1]}))
     }
 
     render() {
