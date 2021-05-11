@@ -6,13 +6,13 @@ import App3 from "./App3";
 class Component extends React.Component {
 
     // 已经过时，被重命名 不推荐使用了
-    componentWillReceiveProps(nextProps, nextContext) {
-        console.log('props 变化了')
-        console.log('当前props')
-        console.log(this.props);
-        console.log('新的props')
-        console.log(nextProps);
-    }
+    // componentWillReceiveProps(nextProps, nextContext) {
+    //     console.log('props 变化了')
+    //     console.log('当前props')
+    //     console.log(this.props);
+    //     console.log('新的props')
+    //     console.log(nextProps);
+    // }
 
     constructor(props) {
         super(props)

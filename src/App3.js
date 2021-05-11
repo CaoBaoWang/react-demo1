@@ -10,11 +10,33 @@ const App3 = () => {
         console.log('App3 mount')
     }, [])
 
-    // 模拟 componentDidUpdate
-    useEffect(() => {
-        console.log('m 或 n 变了')
-    }, [m, n])
+    // // 模拟 componentDidUpdate
+    // useEffect(() => {
+    //     console.log('m 或 n 变了')
+    // //   m n 初始化也算 变
+    // }, [m, n])
 
+    // 自定义Hook模拟 componentDidUpdate  n初始化不算变化 start
+    const useX = (n)=> {
+        const [nUpdateCount , setNUpdateCount] = useState(0)
+        useEffect(()=>{
+            setNUpdateCount(nUpdateCountX => nUpdateCountX +1)
+
+        },[n])
+
+        return {
+            nUpdateCount
+        }
+    }
+    const {nUpdateCount} = useX(n)
+    useEffect(()=>{
+        if(nUpdateCount>1){
+            console.log('n 变化了')
+        }
+
+    },[nUpdateCount])
+
+    // 模拟 componentDidUpdate  n初始化不算变化end
 
 
     const addN = () => {
