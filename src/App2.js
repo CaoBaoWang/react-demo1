@@ -35,7 +35,7 @@ class App2 extends React.PureComponent {
         // 执行了 render  n+1  n-1  n的值没变 但是对象的值变了 会重新执行 render 。 DOM是不会变化，应为DOM diff 发现没有变化。就啥都不变
         console.log('render')
         return (
-            <div className="App2">App2 <br/>
+            <div className="App">App2 <br/>
                 {/*给DOM绑定ref*/}
                 <div ref={this.ref}>{this.state.n}</div>
                 <button onClick={this.add}>+1</button>
