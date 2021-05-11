@@ -15,7 +15,7 @@ class Component extends React.Component {
 
     constructor(props) {
         super(props)
-        console.log(this.props.n)
+        console.log(this.props)
     }
 
     render() {
@@ -53,7 +53,7 @@ class App extends React.Component {
             <div className={'red'}>
                 {this.state.n}
 
-                <Component n={this.state.n} addN={this.addN}/>
+                <Component n={this.state.n} addN={this.addN}>hi</Component>
                 <ul>
                     {this.state.history.map((item) =>
                         <div key={item}>{item}</div>)
